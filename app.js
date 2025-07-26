@@ -6,3 +6,14 @@ for (let i = 0; i < 16; i++) {
      gridContainer.appendChild(div);
   }
 }
+
+const tiles = document.querySelector(".tile");
+
+function calculateGridWidth() {
+  const tileDimensions = tiles.getBoundingClientRect();
+  const tileWidth = tileDimensions.width;
+  const gridWidthCalculation = tileWidth * 16;
+  gridContainer.style.width = `${gridWidthCalculation}px`;
+}
+
+calculateGridWidth();
