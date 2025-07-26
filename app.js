@@ -11,7 +11,6 @@ const tiles = document.querySelectorAll(".tile");
 
 function calculateTileWidth() {
   const gridDimensions = gridContainer.getBoundingClientRect();
-  console.log(gridDimensions);
   const gridWidth = gridDimensions.width;
   const tileWidthCalculation = gridWidth / 16;
   tiles.forEach((tile) => {
