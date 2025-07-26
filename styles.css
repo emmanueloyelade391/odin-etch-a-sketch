@@ -5,7 +5,7 @@
 }
 
 #grid-container {
-  width: 640px; 
+  width: 960px; 
   height: auto;
   display: flex;
   flex-direction: row;
@@ -17,8 +17,6 @@
 
 .tile {
   border: 1px solid black;
-  width: 40px;
-  height: 40px;
 }
 
 .modified-tile {

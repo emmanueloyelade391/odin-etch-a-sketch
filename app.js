@@ -7,16 +7,20 @@ for (let i = 0; i < 16; i++) {
   }
 }
 
-const tiles = document.querySelector(".tile");
+const tiles = document.querySelectorAll(".tile");
 
-function calculateGridWidth() {
-  const tileDimensions = tiles.getBoundingClientRect();
-  const tileWidth = tileDimensions.width;
-  const gridWidthCalculation = tileWidth * 16;
-  gridContainer.style.width = `${gridWidthCalculation}px`;
+function calculateTileWidth() {
+  const gridDimensions = gridContainer.getBoundingClientRect();
+  console.log(gridDimensions);
+  const gridWidth = gridDimensions.width;
+  const tileWidthCalculation = gridWidth / 16;
+  tiles.forEach((tile) => {
+    tile.style.width = `${tileWidthCalculation}px`;
+    tile.style.height = `${tileWidthCalculation}px`;
+  });
 }
 
-calculateGridWidth();
+calculateTileWidth();
 
 const tileColorChanger = document.querySelectorAll(".tile");
 
