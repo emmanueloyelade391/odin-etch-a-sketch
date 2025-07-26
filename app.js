@@ -17,3 +17,11 @@ function calculateGridWidth() {
 }
 
 calculateGridWidth();
+
+const tileColorChanger = document.querySelectorAll(".tile");
+
+tileColorChanger.forEach((tile) => {
+  tile.addEventListener("mouseover", (event) => {
+    event.target.classList.add("modified-tile");
+  })
+})
