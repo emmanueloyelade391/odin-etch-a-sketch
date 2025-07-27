@@ -7,14 +7,14 @@ for (let i = 0; i < 16; i++) {
   }
 }
 
-function calculateTileWidth() {
+function calculateTileNumber() {
   const tiles = document.querySelectorAll(".tile");
   const gridDimensions = gridContainer.getBoundingClientRect();
   const gridWidth = gridDimensions.width;
-  const tileWidthCalculation = gridWidth / 16;
+  const tileNumberCalculation = gridWidth / 16;
   tiles.forEach((tile) => {
-    tile.style.width = `${tileWidthCalculation}px`;
-    tile.style.height = `${tileWidthCalculation}px`;
+    tile.style.width = `${tileNumberCalculation}px`;
+    tile.style.height = `${tileNumberCalculation}px`;
   });
 }
 
@@ -28,18 +28,18 @@ function changeTileColor() {
 }
 
 
-function calculateNewTileWidth(tileNumber) {
+function calculateNewTileNumber(tileNumber) {
       const tiles = document.querySelectorAll(".tile");
       const gridDimensions = gridContainer.getBoundingClientRect();
       const gridWidth = gridDimensions.width;
-      const tileWidthCalculation = gridWidth / tileNumber;
+      const tileNumberCalculation = gridWidth / tileNumber;
       tiles.forEach((tile) => {
-        tile.style.width = `${tileWidthCalculation}px`;
-        tile.style.height = `${tileWidthCalculation}px`;
+        tile.style.width = `${tileNumberCalculation}px`;
+        tile.style.height = `${tileNumberCalculation}px`;
       });
     }
 
-calculateTileWidth();
+calculateTileNumber();
 changeTileColor();
 
 const gridSizeButton = document.querySelector("#grid-size-button");
@@ -70,7 +70,7 @@ gridSizeButton.addEventListener("click", () => {
       }
     }
 
-    calculateNewTileWidth(userTiles);
+    calculateNewTileNumber(userTiles);
     changeTileColor();
   }
 });
