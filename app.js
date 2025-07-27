@@ -74,3 +74,11 @@ gridSizeButton.addEventListener("click", () => {
     changeTileColor();
   }
 });
+
+const resetGrid = document.querySelector("#reset-grid");
+resetGrid.addEventListener("click", () => {
+  const tiles = document.querySelectorAll(".tile");
+  tiles.forEach((tile) => {
+    tile.classList.remove("modified-tile");
+  })
+})
