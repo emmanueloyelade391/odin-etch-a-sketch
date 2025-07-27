@@ -7,9 +7,8 @@ for (let i = 0; i < 16; i++) {
   }
 }
 
-const tiles = document.querySelectorAll(".tile");
-
 function calculateTileWidth() {
+  const tiles = document.querySelectorAll(".tile");
   const gridDimensions = gridContainer.getBoundingClientRect();
   const gridWidth = gridDimensions.width;
   const tileWidthCalculation = gridWidth / 16;
@@ -19,18 +18,33 @@ function calculateTileWidth() {
   });
 }
 
+function changeTileColor() {
+  const tileColorChanger = document.querySelectorAll(".tile");
+  tileColorChanger.forEach((tile) => {
+    tile.addEventListener("mouseover", (event) => {
+      event.target.classList.add("modified-tile");
+    })
+  });
+}
+
+
+function calculateNewTileWidth(tileNumber) {
+      const tiles = document.querySelectorAll(".tile");
+      const gridDimensions = gridContainer.getBoundingClientRect();
+      const gridWidth = gridDimensions.width;
+      const tileWidthCalculation = gridWidth / tileNumber;
+      tiles.forEach((tile) => {
+        tile.style.width = `${tileWidthCalculation}px`;
+        tile.style.height = `${tileWidthCalculation}px`;
+      });
+    }
+
 calculateTileWidth();
-
-const tileColorChanger = document.querySelectorAll(".tile");
-
-tileColorChanger.forEach((tile) => {
-  tile.addEventListener("mouseover", (event) => {
-    event.target.classList.add("modified-tile");
-  })
-});
+changeTileColor();
 
 const gridSizeButton = document.querySelector("#grid-size-button");
 gridSizeButton.addEventListener("click", () => {
+  let gridChild = gridContainer.lastElementChild;
   const userTiles = +prompt(
     "Input the number of tiles you want per side of the grid in a range between 1 - 100:"
   );
@@ -43,23 +57,20 @@ gridSizeButton.addEventListener("click", () => {
   }
 
   if (1 <= userTiles && userTiles <= 100) {
-    const newGridContainer = document.createElement("div");
-    newGridContainer.id = "new-grid-container";
-    gridContainer.replaceWith(newGridContainer);
-    
-    //body.appendChild(newGridContainer);
-    
+    while(gridChild) {
+      gridContainer.removeChild(gridChild);
+      gridChild = gridContainer.lastElementChild;
+    }
+
     for (let i = 0; i < userTiles; i++) {
-      for (let j = 0; j < userTiles; i++) {
-        const div = createElement("div");
-        div.style.classList.add("tile");
-        newGridContainer.appendChild(div);
+      for (let j = 0; j < userTiles; j++ ) {
+        const tile = document.createElement("div");
+        tile.classList.add("tile");
+        gridContainer.appendChild(tile);
       }
     }
 
-    const newTiles = document.querySelector(".tile");
-
-    //body.appendChild(newGridContainer);
-    console.log(newGridContainer);
+    calculateNewTileWidth(userTiles);
+    changeTileColor();
   }
 });
