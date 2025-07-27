@@ -29,6 +29,17 @@ h1 {
   align-items: center;
 }
 
+button {
+  color: white;
+  background-color: teal;
+  border: none;
+  font-weight: bold;
+  padding: 15px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1p5x;
+}
+
 #grid-size-button {
   margin-right: 40px; 
 }
