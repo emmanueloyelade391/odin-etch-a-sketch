@@ -1,3 +1,4 @@
+//The variable and loop creates a 16 x 16 grid
 const gridContainer = document.querySelector("#grid-container");
 for (let i = 0; i < 16; i++) {
   for (let j = 0; j < 16; j++) {
@@ -7,6 +8,8 @@ for (let i = 0; i < 16; i++) {
   }
 }
 
+//calculateTileNumber calculates the width for all tiles in the 16 x 16 grid
+//so that each side of the grid has exactly 16 tiles.
 function calculateTileNumber() {
   const tiles = document.querySelectorAll(".tile");
   const gridDimensions = gridContainer.getBoundingClientRect();
@@ -18,6 +21,7 @@ function calculateTileNumber() {
   });
 }
 
+//changeTileColor changes the color of the tile that the mouse hovers over.
 function changeTileColor() {
   const tileColorChanger = document.querySelectorAll(".tile");
   tileColorChanger.forEach((tile) => {
@@ -27,7 +31,9 @@ function changeTileColor() {
   });
 }
 
-
+//calculateNewTileNumber calculates the width of each tile in the new grid 
+//that the user makes so that each side of the new grid has exactly the number
+//of tiles the user inputs per side.
 function calculateNewTileNumber(tileNumber) {
       const tiles = document.querySelectorAll(".tile");
       const gridDimensions = gridContainer.getBoundingClientRect();
@@ -42,6 +48,8 @@ function calculateNewTileNumber(tileNumber) {
 calculateTileNumber();
 changeTileColor();
 
+//The variable and event listener asks the user for a valid number of tiles
+//and then calls the calculateNewTileNumber function.
 const gridSizeButton = document.querySelector("#grid-size-button");
 gridSizeButton.addEventListener("click", () => {
   let gridChild = gridContainer.lastElementChild;
