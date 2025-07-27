@@ -28,6 +28,10 @@ h1 {
   align-items: center;
 }
 
+#grid-size-button {
+  margin-right: 40px; 
+}
+
 #new-grid-container {
   width: 960px; 
   height: auto;
